@@ -21,7 +21,11 @@ class ProfileHeaderView: UIView {
         avatarImageView.layer.cornerRadius = 50
         avatarImageView.backgroundColor = .gray
         avatarImageView.layer.contents = UIImage(named: "Steve")?.cgImage
-                
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = UIColor.white.cgColor
+        
+        
+        
         nameLabel.text = "Steve Jobs"
         nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         nameLabel.textAlignment = .center
@@ -34,6 +38,8 @@ class ProfileHeaderView: UIView {
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.7
+        button.layer.borderWidth = 50
+        
         
         addSubview(avatarImageView)
         addSubview(nameLabel)
@@ -45,7 +51,7 @@ class ProfileHeaderView: UIView {
         
         avatarImageView.frame = CGRect(
             x: 16,
-            y: 16,
+            y: 132,
             width: 100,
             height: 100)
         nameLabel.frame = CGRect (
@@ -55,14 +61,14 @@ class ProfileHeaderView: UIView {
             height: 30)
         statusLabel.frame = CGRect(
             x: 20,
-            y:nameLabel.frame.maxY + 10,
+            y: avatarImageView.frame.maxY + 10,
             width: bounds.width - 40,
             height: 20)
         button.frame = CGRect(
             x: 16,
             y: statusLabel.frame.maxY + 20,
             width: 100,
-            height: 40)
+            height: 50)
     }
     @objc func buttonPressed() {
         print(statusLabel.text ?? "No status")
