@@ -26,8 +26,12 @@ class ProfileViewController: UIViewController {
     
     private func setupCustomButton() {
         let customButton = UIButton(type: .system)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .systemBlue
+        config.baseForegroundColor = .white
+        customButton.configuration = config
         customButton.translatesAutoresizingMaskIntoConstraints = false
-        customButton.setTitle("Custom Button", for: .normal)
+        customButton.setTitle("New Button", for: .normal)
         view.addSubview(customButton)
         
         NSLayoutConstraint.activate([

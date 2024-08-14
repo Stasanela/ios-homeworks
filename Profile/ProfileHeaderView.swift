@@ -5,6 +5,7 @@ class ProfileHeaderView: UIView {
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
+        let imgaeView = UIImage(named: "Steve")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
@@ -35,8 +36,14 @@ class ProfileHeaderView: UIView {
     
     private let setStatusButton: UIButton = {
         let button = UIButton(type: .system)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .systemBlue
+        config.baseForegroundColor = .white
+        button.configuration = config
+        button.layer.cornerRadius = 4
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Status", for: .normal)
+        
         return button
     }()
     
