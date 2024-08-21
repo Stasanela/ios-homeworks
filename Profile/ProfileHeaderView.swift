@@ -5,11 +5,14 @@ class ProfileHeaderView: UIView {
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        let imgaeView = UIImage(named: "Steve")
+        imageView.image = UIImage(named: "Steve")
+        imageView.layer.borderWidth = 3
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.borderColor = UIColor.white.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .gray
         return imageView
     }()
     
@@ -17,6 +20,8 @@ class ProfileHeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Steve Jobs"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .black
         return label
     }()
     
@@ -24,6 +29,8 @@ class ProfileHeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "One more thing"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
         return label
     }()
     
