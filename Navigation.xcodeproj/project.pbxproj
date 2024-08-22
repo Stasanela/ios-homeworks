@@ -13,9 +13,10 @@
 		7D5B0F512C5FB6E50029446C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5B0F502C5FB6E50029446C /* Assets.xcassets */; };
 		7D5B0F542C5FB6E50029446C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7D5B0F532C5FB6E50029446C /* Base */; };
 		7D5B0F5C2C6283DA0029446C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B0F5B2C6283DA0029446C /* FeedViewController.swift */; };
-		7D5B0F5E2C6283E60029446C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B0F5D2C6283E60029446C /* ProfileViewController.swift */; };
 		7D5B0F602C6284250029446C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B0F5F2C6284250029446C /* PostViewController.swift */; };
 		7D5B0F622C62842F0029446C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B0F612C62842F0029446C /* InfoViewController.swift */; };
+		7DF7B7C52C6A1EB100F64CA3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7B7C42C6A1EB100F64CA3 /* ProfileHeaderView.swift */; };
+		7DF7B7C72C6A1EDC00F64CA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7B7C62C6A1EDC00F64CA3 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +28,10 @@
 		7D5B0F532C5FB6E50029446C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D5B0F552C5FB6E50029446C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D5B0F5B2C6283DA0029446C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		7D5B0F5D2C6283E60029446C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7D5B0F5F2C6284250029446C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7D5B0F612C62842F0029446C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		7DF7B7C42C6A1EB100F64CA3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		7DF7B7C62C6A1EDC00F64CA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		7D5B0F3B2C5FB6E40029446C = {
 			isa = PBXGroup;
 			children = (
+				7DF7B7C32C6A1E9000F64CA3 /* Profile */,
 				7D5B0F462C5FB6E40029446C /* Navigation */,
 				7D5B0F452C5FB6E40029446C /* Products */,
 			);
@@ -67,13 +70,21 @@
 				7D5B0F5B2C6283DA0029446C /* FeedViewController.swift */,
 				7D5B0F5F2C6284250029446C /* PostViewController.swift */,
 				7D5B0F612C62842F0029446C /* InfoViewController.swift */,
-				7D5B0F5D2C6283E60029446C /* ProfileViewController.swift */,
 				7D5B0F4B2C5FB6E40029446C /* ViewController.swift */,
 				7D5B0F502C5FB6E50029446C /* Assets.xcassets */,
 				7D5B0F522C5FB6E50029446C /* LaunchScreen.storyboard */,
 				7D5B0F552C5FB6E50029446C /* Info.plist */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		7DF7B7C32C6A1E9000F64CA3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7DF7B7C42C6A1EB100F64CA3 /* ProfileHeaderView.swift */,
+				7DF7B7C62C6A1EDC00F64CA3 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +161,10 @@
 				7D5B0F4C2C5FB6E40029446C /* ViewController.swift in Sources */,
 				7D5B0F482C5FB6E40029446C /* AppDelegate.swift in Sources */,
 				7D5B0F622C62842F0029446C /* InfoViewController.swift in Sources */,
-				7D5B0F5E2C6283E60029446C /* ProfileViewController.swift in Sources */,
 				7D5B0F5C2C6283DA0029446C /* FeedViewController.swift in Sources */,
+				7DF7B7C72C6A1EDC00F64CA3 /* ProfileViewController.swift in Sources */,
 				7D5B0F4A2C5FB6E40029446C /* SceneDelegate.swift in Sources */,
+				7DF7B7C52C6A1EB100F64CA3 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
