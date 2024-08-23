@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
 
         let profileNavigationController = createNavigationController(
-            viewController: ProfileViewController(),
+            viewController: LogInViewController(),
             title: "Profile",
             imageName: "person.crop.circle"
         )

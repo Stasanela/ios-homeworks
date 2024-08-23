@@ -5,8 +5,9 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        //        registerForKeyboardNotifications()
     }
-     
+    
     private func setupUI() {
         self.navigationController?.navigationBar.isHidden = true
         self.view.backgroundColor = .white
@@ -65,9 +66,9 @@ class LogInViewController: UIViewController {
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor,constant: 120),
-            passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor, constant: 16),
-            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor, constant: -16),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
+            passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
@@ -77,4 +78,17 @@ class LogInViewController: UIViewController {
             
         ])
     }
+    //    private func registerForKeyboardNotifications() {
+    //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    //    }
+    //
+    //    @objc func willShowKeyboard(_ notification: NSNotification) {
+    //            let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+    //            scrollView.contentInset.bottom += keyboardHeight ?? 0.0
+    //    }
+    //
+    //    @objc func willHideKeyboard(_ notification: NSNotification) {
+    //            scrollView.contentInset.bottom = 0.0
+    //        }
 }
