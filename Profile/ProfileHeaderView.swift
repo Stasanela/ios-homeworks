@@ -1,96 +1,102 @@
+import Foundation
 import UIKit
 
 class ProfileHeaderView: UIView {
-    private let imageView: UIImageView = {
+    
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.borderWidth = 3
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 50
-        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "Steve")
+        imageView.layer.borderWidth = 3
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 50
+        imageView.clipsToBounds = true
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
+    private let fullNameLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Steve Jobs"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .black
-        label.text = "Steve Jobs"
         return label
     }()
     
     private let statusLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "One more thing"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
-        label.text = "One more thing"
         return label
     }()
     
-    private let button: UIButton = {
+    private let statusTextField: UITextField = {
+       let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
+        return textField
+    }()
+    
+    private let setStatusButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .systemBlue
-        button.setTitle("Show status", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .systemBlue
+        config.baseForegroundColor = .white
+        button.configuration = config
         button.layer.cornerRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize (width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowOpacity = 0.7
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Status", for: .normal)
+        
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(imageView)
-        addSubview(nameLabel)
-        addSubview(statusLabel)
-        addSubview(button)
-        
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let safeArea = self.safeAreaInsets
-        
-        let imageSize: CGFloat = 100
-        imageView.frame = CGRect(
-            x: 16,
-            y: 16 + safeArea.top,
-            width: imageSize,
-            height: imageSize)
-        imageView.layer.cornerRadius = imageSize / 2
-        
-        nameLabel.frame = CGRect(
-            x: imageView.frame.maxX + 27,
-            y: 27 + safeArea.top,
-            width: bounds.width - imageView.frame.maxX - 43,
-            height: 20)
-        
-        statusLabel.frame = CGRect(
-            x: imageView.frame.maxX + 27,
-            y: nameLabel.frame.maxY + 8,
-            width: bounds.width - imageView.frame.maxX - 43,
-            height: 20)
-        
-        let buttonHeight: CGFloat = 50
-        let buttonWidth = bounds.width - 32
-        button.frame = CGRect(
-            x: 16,
-            y: imageView.frame.maxY + 16,
-            width: buttonWidth,
-            height: buttonHeight)
-    }
-    
-    @objc func buttonPressed() {
-        print(statusLabel.text ?? "No status" )
+        setupViews()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupViews()
+        setupConstraints()
+
+    }
+    
+    private func setupViews() {
+        addSubview(avatarImageView)
+        addSubview(fullNameLabel)
+        addSubview(statusLabel)
+        addSubview(statusTextField)
+        addSubview(setStatusButton)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            fullNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
+            
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
+            
+            statusTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
+            statusTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            
+            setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16)
+        ])
     }
 }
