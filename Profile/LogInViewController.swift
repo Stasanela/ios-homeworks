@@ -5,14 +5,18 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //        registerForKeyboardNotifications()
     }
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
     
     private func setupUI() {
         self.navigationController?.navigationBar.isHidden = true
         self.view.backgroundColor = .white
-        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
         
         
@@ -78,17 +82,26 @@ class LogInViewController: UIViewController {
             
         ])
     }
-    //    private func registerForKeyboardNotifications() {
-    //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-    //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    //    }
-    //
-    //    @objc func willShowKeyboard(_ notification: NSNotification) {
-    //            let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
-    //            scrollView.contentInset.bottom += keyboardHeight ?? 0.0
-    //    }
-    //
-    //    @objc func willHideKeyboard(_ notification: NSNotification) {
-    //            scrollView.contentInset.bottom = 0.0
-    //        }
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func willShowKeyboard(_ notification: NSNotification) {
+            let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+            scrollView.contentInset.bottom += keyboardHeight ?? 0.0
+        
+        let contentInsets = UIEdgeInsets(
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+
+    @objc func willHideKeyboard(_ notification: NSNotification) {
+            scrollView.contentInset.bottom = 0.0
+    }
 }
