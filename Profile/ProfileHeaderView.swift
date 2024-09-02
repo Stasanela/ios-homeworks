@@ -8,7 +8,7 @@ class ProfileHeaderView: UIView {
         imageView.image = UIImage(named: "Steve")
         imageView.layer.borderWidth = 3
         imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 50
@@ -91,7 +91,7 @@ class ProfileHeaderView: UIView {
             statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
             
             statusTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
             
             setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
